@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Quote List";
+}
+
+@model List<AddedQuote>
+
+<div class="text-center text-white bg-light">
+    <h1 class="display-4 bg-success">Welcome, Quote Connoisseur</h1>
+    <img src="~/img/Headshot.jpg" style="height:200px;" />
+</div>
+
+<div>
+    
+</div>
+
+<table class="table table-bordered table-dark table-striped">
+
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Quote</td>
+            <td>Author</td>
+            <td>Date</td>
+            <td>Subject</td>
+            <td>Citation</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+        <tr>
+            <td>@x.Quote</td>
+            <td>@x.Author</td>
+            <td>@x.Date</td>
+            <td>@x.Subject</td>
+            <td>@x.Citation</td>
+            <td><a asp-controller="Home" asp-action="Details" asp-route-quoteid="@x.QuoteId">Details</a></td>
+        </tr>
+        }
+    </tbody>
+
+</table>
